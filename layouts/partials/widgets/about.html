@@ -28,7 +28,11 @@
         {{ range $.Site.Params.organizations }}
         <h3 itemprop="worksFor" itemscope itemtype="http://schema.org/Organization">
           {{ with .url }}<a href="{{ . }}" target="_blank" itemprop="url" rel="noopener">{{ end }}
+            {{ if .logo }}
+            <img class="logo" src="{{ (printf "img/%s" .logo) | relURL }}" alt="{{ .name }}" itemprop="image">
+            {{ else }}
           <span itemprop="name">{{ .name }}</span>
+            {{ end }}
           {{ if .url }}</a>{{ end }}
         </h3>
         {{ end }}
