@@ -13,7 +13,7 @@
       {{ end }}
 
       <div class="portrait-title">
-        <h2 itemprop="name">{{ $.Site.Params.name }}</h2>
+        <h2 itemprop="name">{{ $.Site.Params.name | safeHTML }}</h2>
         {{ with $.Site.Params.role }}<h3 itemprop="jobTitle">{{ . }}</h3>{{ end }}
 
         {{/* Support legacy `organization` option. */}}
