@@ -116,8 +116,16 @@
   {{ end }}
 
   <link rel="manifest" href="{{ "site.webmanifest" | relURL }}">
-  <link rel="icon" type="image/png" href="{{ "/img/icon.png" | relURL }}">
-  <link rel="apple-touch-icon" type="image/png" href="{{ "/img/icon-192.png" | relURL }}">
+
+  <!-- begin : use idiap favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="/++theme++idiap_theme_a1/barceloneta-favicon.ico" />
+  <link rel="apple-touch-icon" href="/++theme++idiap_theme_a1/barceloneta-apple-touch-icon.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/++theme++idiap_theme_a1/barceloneta-apple-touch-icon-144x144-precomposed.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/++theme++idiap_theme_a1/barceloneta-apple-touch-icon-114x114-precomposed.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/++theme++idiap_theme_a1/barceloneta-apple-touch-icon-72x72-precomposed.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/++theme++idiap_theme_a1/barceloneta-apple-touch-icon-57x57-precomposed.png" />
+  <link rel="apple-touch-icon-precomposed" href="/++theme++idiap_theme_a1/barceloneta-apple-touch-icon-precomposed.png" />
+  <!-- end : use idiap favicon -->
 
   <link rel="canonical" href="{{ .Permalink }}">
 
@@ -136,9 +144,10 @@
   {{ else if .Site.Params.sharing_image }}
     {{ $og_image = .Site.Params.sharing_image }}
   {{ else }}
-    {{ $og_image = "icon-192.png" }}
+    {{ $og_image = "idiap_logo.jpg" }}
   {{ end }}
   {{- with $og_image }}<meta property="og:image" content="{{ printf "img/%s" . | absURL }}">{{end}}
+
   <meta property="og:locale" content="{{ .Site.LanguageCode | default "en-us" }}">
   {{ if .IsPage }}
   {{ if not .PublishDate.IsZero }}<meta property="article:published_time" content="{{ .PublishDate.Format "2006-01-02T15:04:05-07:00" | safeHTML }}">
